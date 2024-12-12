@@ -10,3 +10,4 @@ print(df.columns)
 
 df2 = df['Customer Id']
 print(type(df2))
+print(df.info())

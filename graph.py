@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 df = pd.read_csv('mpg.csv')
-# print(df)
+print(df.head())
 df.boxplot(ax=ax)
 ax.set_xticks(range(10))
 ax.set_xticklabels(range(10))
-#plt.show()
+plt.show()
 # first count number of rows and columns
 # find number of columns from 2nd element of the array
 n_box_plots = df.select_dtypes(include='number').shape[1]
@@ -22,9 +22,9 @@ print(all_labels,smallest_label,largest_label)
 
 # plot hist diagram
 df.plot.hist()
-#plt.show()
+plt.show()
 ax = df[['acceleration']].plot.hist()
-#plt.show()
+plt.show()
 xlabels = ax.patches
 for patch in xlabels:
     print(patch.get_height())
