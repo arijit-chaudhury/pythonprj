@@ -8,5 +8,10 @@ ax = df.plot.scatter(x='horsepower_per_cylinder',y='acceleration')
 acc_decreases = True
 print(ax.get_xticks())
 print(ax.get_yticks())
+
+ax = df.plot.scatter(x='mpg',y='horsepower_per_cylinder')
+ax = df.plot.scatter(x='mpg',y='horsepower',ax=ax,color='red')
 plt.show()
+
+
 
