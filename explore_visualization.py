@@ -11,7 +11,9 @@ print(ax.get_yticks())
 
 ax = df.plot.scatter(x='mpg',y='horsepower_per_cylinder')
 ax = df.plot.scatter(x='mpg',y='horsepower',ax=ax,color='red')
+
+
+ax = df[['mpg']].plot.hist(bins=50)
+plt.xlabel('Miles Per Gallon')
 plt.show()
-
-
 
