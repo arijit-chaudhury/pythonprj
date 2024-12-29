@@ -27,19 +27,19 @@ dates = np.arange(min_date, max_date, dt).astype(datetime)
 # print(dates)
 
 n = pd.period_range(start=min_date, end=max_date, freq='M')
-# print(n)
+print(n)
 
+dateList = []
+countList = []
 while min_date <= max_date:
-    print(min_date)
-    print(min_date+dt)
     df4 = df2[(df['Date'] > min_date) & (df2['Date'] <= min_date+dt)]
     min_date = min_date+dt
-    print(df4['Customer Id'].count())
-    print('\n')
+    count = df4['Customer Id'].count()
+    dateList.append(min_date)
+    countList.append(count)
 
-filterData = (df2['Date'] > min_date) & (df2['Date'] <= max_date)
-df3 = df2.loc[filterData]
-# print(df3)
+newRangeByCount = pd.DataFrame({"Month End Date": dateList, "Count": countList})
+print(newRangeByCount.head())
 
-noOfOccurrence.plot.scatter(x='Date', y='noOfOccurrence')
-# plt.show()
+newRangeByCount.plot(x='Month End Date', y='Count')
+plt.show()
