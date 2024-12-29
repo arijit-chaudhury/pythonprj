@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+import numpy as np
 
 df = pd.read_csv('../customers-100.csv')
 df['Date'] = pd.to_datetime(df['Subscription Date'], errors='coerce')
@@ -17,13 +19,19 @@ min_date = df2['Date'].min()
 max_date = df2['Date'].max()
 
 # Try date range from minimum and maximum value
-per1 = pd.date_range(start=min_date, end=max_date, freq='ME')
-for val in per1:
-    print(val)
+# per1 = pd.date_range(start=min_date, end=max_date, freq='ME')
+#for val in per1:
+#    print(val)
+dt = timedelta(days=30)
+dates = np.arange(min_date, max_date, dt).astype(datetime)
+print(dates)
 
-noOfOccurrence.plot.scatter(x='Date', y='noOfOccurrence')
-plt.show()
+n = pd.period_range(start=min_date, end=max_date, freq='M')
+print(n)
 
 filterData = (df2['Date'] > min_date) & (df2['Date'] <= max_date)
 df3 = df2.loc[filterData]
 print(df3)
+
+noOfOccurrence.plot.scatter(x='Date', y='noOfOccurrence')
+#plt.show()
