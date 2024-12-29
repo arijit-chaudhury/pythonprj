@@ -14,14 +14,12 @@ print(df2.head())
 noOfOccurrence = df2.groupby(['Date']).size().reset_index(name='noOfOccurrence')
 print(noOfOccurrence)
 
-print(df2['Date'].min())
-print(df2['Date'].max())
+min_date = df2['Date'].min()
+max_date = df2['Date'].max()
+
+per1 = pd.date_range(start=min_date, end=max_date, freq='30D')
+for val in per1:
+    print(val)
 
 noOfOccurrence.plot.scatter(x='Date', y='noOfOccurrence')
 plt.show()
-
-
-
-
-
-
